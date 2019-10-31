@@ -85,6 +85,7 @@
       this.animateValue(this.querySelector('[data-counter="true"]'), 0, this.progress, this.duration);
     }
 
+    // eslint-disable-next-line class-methods-use-this
     animateValue(elem, start, end, duration) {
       // assumes integer values for start and end
       const element = elem;
@@ -123,8 +124,11 @@
     isInViewport(elem) {
       const bounding = elem.getBoundingClientRect();
       return (
-        // eslint-disable-next-line max-len
-        bounding.top >= 0 && bounding.left >= 0 && bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) && bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+        bounding.top >= 0 && bounding.left >= 0
+        && bounding.bottom <= (window.innerHeight
+        || document.documentElement.clientHeight)
+        && bounding.right <= (window.innerWidth
+          || document.documentElement.clientWidth)
       );
     }
 
